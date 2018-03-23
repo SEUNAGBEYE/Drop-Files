@@ -1,0 +1,65 @@
+.selectFileContainer{
+  cursor: pointer;
+  margin: 1rem auto 1rem auto;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  height: 20vh;
+  border: 1px solid black;
+  border-radius: .7rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  opacity: .2;
+  
+}
+
+#filePreviewer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 0 auto;
+}
+
+a {
+  color: black;
+}
+
+button {
+  display: block!important;
+  width: 10rem;
+  background-color:	#5bc0de;
+  color: white;
+  border-radius: .2rem; 
+  margin: 1rem auto 1rem auto;
+}
+
+.imageThumbnails {
+  flex-grow: 1;
+  height: 150px;
+  width: 100px;
+  margin: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+}
+
+img, object {
+  width: 100%;
+  height: 100%;
+}
+
+.fileThumbnails {
+  flex-grow: 1;
+  height: 40vh;
+  width: 30vw;
+  margin: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+}
+
+@media (min-width: 767px) and (max-width: 2560px){
+  .selectFileContainer{
+    width: 15vw;
+  }
+}
