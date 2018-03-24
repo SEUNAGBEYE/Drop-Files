@@ -1,12 +1,13 @@
-.selectFileContainer{
+#selectFileContainer{
   cursor: pointer;
   margin: 1rem auto 1rem auto;
   background-color: black;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70vw;
+  width: 70%;
   height: 20vh;
   border: 1px solid black;
   border-radius: .7rem;
@@ -60,6 +61,6 @@ img, object {
 
 @media (min-width: 767px) and (max-width: 2560px){
   .selectFileContainer{
-    width: 15vw;
+    width: 15%;
   }
 }

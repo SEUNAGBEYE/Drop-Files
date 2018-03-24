@@ -1,0 +1,17 @@
+plugins:
+  csslint:
+    enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+exclude_patterns:
+  - "node_modules/"
+  - "src/components/font-awesome-4.7.0"
+  - "example/public"
+  - "__tests__"

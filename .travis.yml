@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+ - "stable"
+
+install: 
+- npm install -g codecov
+- npm install
+
+services:
+  - postgresql
+env:
+  global:
+    - NODE_ENV=test
+    - CC_TEST_REPORTER_ID=a2940e57e00f54e47670e155bec059300094f33861f43f3ea5458d385458e76f
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script: yarn test
+
+after_success:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

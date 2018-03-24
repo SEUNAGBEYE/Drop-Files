@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
-
-
-import fileUploader from '../helpers/fileUploader';
+import './styles/styles.scss';
+import './font-awesome-4.7.0/scss/font-awesome.scss';
 
 /**
  * @description Drop File Component
@@ -12,29 +11,20 @@ import fileUploader from '../helpers/fileUploader';
  * @extends {Component}
  */
 class DropFile extends Component{
-  /**
-   * @description Creates an instance of DropFile.
-   *
-   * @method constructor
-   * 
-   * @param {Object} props
-   *
-   * @memberof DropFile
-   */
   constructor(props){
     super(props);
     this.state = {
-      files: [],
-      showFilePreviewer: false,
+      fileExtensionsRegex: /\.dmg|\.apk|\.docx|\.m4a/,
+      supportedFormats: {
+        video: /video/,
+        image: /image/,
+        audio: /audio/
+      }
     }
-  }
-
-  uploadToCloudinary = async (event) => {
-    event.preventDefault()
-    this.setState({ fileUploading: true })
-    const { files } = this.state;
-    const uploadedFiles = await fileUploader(files);
-    this.setState({ fileUploading: false, files: [], uploadedFiles })
+    this.onChange = this.onChange.bind(this);
+    this.dragAndDropFile = this.dragAndDropFile.bind(this);
+    this.removeFile = this.removeFile.bind(this);
+    this.renderFilePreviewer = this.renderFilePreviewer.bind(this);
   }
 
   /**
@@ -46,14 +36,38 @@ class DropFile extends Component{
    * 
    * @memberof DropFile
    */
-  onChange = (event) => {
+  onChange(event){
+    event.preventDefault();
+    const { that } = this.props;
+    const { fileExtensionsRegex } = this.state
     const { name } = event.target;
     const { files } = event.target;
-    const arrayOfFiles = Array.from(files);
-    
-    this.setState(
-      { [name]: [...this.state.files, ...arrayOfFiles], showFilePreviewer: true }
+    let arrayOfFiles = Array.from(files);
+    arrayOfFiles = arrayOfFiles
+    .filter(file => !fileExtensionsRegex.test(file.name))
+    that.setState(
+      { [name]: [...that.state.files, ...arrayOfFiles], showFilePreviewer: true }
     )
+  }
+
+  dragAndDropFile(event){
+    event.preventDefault();
+    event.stopPropagation();
+    const { that } = this.props;
+    const data = event.dataTransfer;
+    const { fileExtensionsRegex } = this.state
+    const { files } = data
+    if(files.length > 0){
+      let arrayOfFiles = Array.from(files);
+      arrayOfFiles = arrayOfFiles.filter(file => {
+        return !fileExtensionsRegex.test(file.name)
+      })  
+      that.setState(
+        { files: [...that.state.files, ...arrayOfFiles], showFilePreviewer: true }
+      )
+    }
+
+
   }
   /**
    * @description remove file from state
@@ -64,26 +78,14 @@ class DropFile extends Component{
    * 
    * @memberof DropFile
    */
-  removeFile = (event) => {
+  removeFile(event){
     event.preventDefault();
+    const { that } = this.props;
     const fileIndex = Number(event.target.dataset.id);
-    const files = this.state.files.filter((files, index) => index !== fileIndex);
-    this.setState({ files });
+    const files = that.state.files.filter((files, index) => index !== fileIndex);
+    that.setState({ files });
   }
     
-  /**
-   * @description display or hide file previewer
-   * 
-   * @method toggleFilePreviewer
-   * 
-   * @returns {void}
-   * @memberof DropFile
-   */
-  toggleFilePreviewer = () => {
-      this.setState({
-        showFilePreviewer: !showFilePreviewer
-      })
-    }
 
   /**
    * @description render file previewer
@@ -93,39 +95,62 @@ class DropFile extends Component{
    * @returns {Jsx} Jsx
    * @memberof DropFile
    */
-  renderFilePreviewer = () => {
+  renderFilePreviewer(){
+    const { that } = this.props;
+    const { 
+      fileExtensionsRegex,
+      supportedFormats: { image, video, audio }
+    } = this.state
     window.URL = window.URL || window.webkitURL;
       return (
-        this.state.files.length > 0 ?
+        that.state.files.length > 0 ?
         <div id="filePreviewer"
         display="showPreviewer"
       >
         { 
-          this.state.showFilePreviewer &&
-          this.state.files.map((file, index) =>
-            /image/.test(file.type) ?
-            <a href={window.URL.createObjectURL(file)}
-            className="imageThumbnails"
-            key={uuid()}
-            >
-             <img src={window.URL.createObjectURL(file)} data-id={index}
-             />
-            <span className="fa fa-trash" data-id={index}
-             onClick={this.removeFile}
-            />
-             </a>
-            : 
-            <div className="fileThumbnails"
-            key={uuid()}>
-              <object data={window.URL.createObjectURL(file)}
-              type={file.type}
-              >Not Supported</object>
-              <span className="fa fa-trash" data-id={index} 
+          that.state.files.map((file, index) =>
+            {
+            if(image.test(file.type)){
+              return (
+                <a href={window.URL.createObjectURL(file)}
+                className="imageThumbnails"
+                key={uuid()}
+                >
+                <img src={window.URL.createObjectURL(file)} data-id={index}
+                />
+                <span className="fa fa-trash" data-id={index}
                 onClick={this.removeFile}
-              />
-            </div>
-            
-          )
+                />
+                </a>
+              )
+            } else if(audio.test(file.type)){
+              return (
+                <audio controls key={uuid()}>
+                  <source src={window.URL.createObjectURL(file)}/>
+                </audio>
+              )
+            } else if(video.test(file.type)){
+              return (
+                <video className="imageThumbnails" key={uuid()}
+                  preload controls
+                >
+                  <source src={window.URL.createObjectURL(file)} />
+                </video>
+              )
+            }
+              return(
+                <div className="fileThumbnails"
+                  key={uuid()}
+                >
+                  <object data={window.URL.createObjectURL(file)}
+                  type={file.type}
+                  >Not Supported</object>
+                  <span className="fa fa-trash" data-id={index} 
+                    onClick={this.removeFile}
+                  />
+                </div>
+              )
+        })
         }
       </div>
       : ''
@@ -142,31 +167,30 @@ class DropFile extends Component{
       return (
       <main>
         <div>
-          <form>
             { this.renderFilePreviewer() }
-            <label className="selectFileContainer" htmlFor='file'>
-              <div>
-              <span className="fa fa-camera"></span>
-              </div>
+            <label id="selectFileContainer" htmlFor='file'
+              onDragEnter={this.dragAndDropFile}
+              onDragOver={this.dragAndDropFile}
+              onDrop={this.dragAndDropFile}
+            >
+                <span>Drag & Drop files</span>
+                <span className="fa fa-camera"></span>
+                <span>Or Click</span>
             </label>
             <input type="file" style={{display:"none"}} name='files'
               multiple
               id="file" onChange={this.onChange}
             />
-            <button className = {
-               this.state.fileUploading ? 'fa fa-spinner' : '' 
-              }
-              disabled = {this.state.fileUploading}
-            onClick= {this.uploadToCloudinary}
-            >
-              Upload
-            </button>
-          </form>
         </div>
       </main>
       );
     }
 }
 
+const propTypes = {
+  that: PropTypes.object.isRequired
+}
+
+DropFile.propTypes = propTypes;
 
 export default DropFile;

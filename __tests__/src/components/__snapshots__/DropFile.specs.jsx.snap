@@ -1,0 +1,598 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`# Drop File should render successfully 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DropFile
+    that={
+      Object {
+        "setState": [MockFunction],
+        "state": Object {
+          "files": Array [
+            Object {},
+          ],
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div>
+        <div
+          display="showPreviewer"
+          id="filePreviewer"
+        >
+          <div
+            className="fileThumbnails"
+          >
+            <object
+              data={undefined}
+              type={undefined}
+            >
+              Not Supported
+            </object>
+            <span
+              className="fa fa-trash"
+              data-id={0}
+              onClick={[Function]}
+            />
+          </div>
+        </div>
+        <label
+          htmlFor="file"
+          id="selectFileContainer"
+          onDragEnter={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+        >
+          <span>
+            Drag & Drop files
+          </span>
+          <span
+            className="fa fa-camera"
+          />
+          <span>
+            Or Click
+          </span>
+        </label>
+        <input
+          id="file"
+          multiple={true}
+          name="files"
+          onChange={[Function]}
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          type="file"
+        />
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            display="showPreviewer"
+            id="filePreviewer"
+          >
+            <div
+              className="fileThumbnails"
+            >
+              <object
+                data={undefined}
+                type={undefined}
+              >
+                Not Supported
+              </object>
+              <span
+                className="fa fa-trash"
+                data-id={0}
+                onClick={[Function]}
+              />
+            </div>
+          </div>,
+          <label
+            htmlFor="file"
+            id="selectFileContainer"
+            onDragEnter={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+          >
+            <span>
+              Drag & Drop files
+            </span>
+            <span
+              className="fa fa-camera"
+            />
+            <span>
+              Or Click
+            </span>
+          </label>,
+          <input
+            id="file"
+            multiple={true}
+            name="files"
+            onChange={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            type="file"
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="fileThumbnails"
+              >
+                <object
+                  data={undefined}
+                  type={undefined}
+                >
+                  Not Supported
+                </object>
+                <span
+                  className="fa fa-trash"
+                  data-id={0}
+                  onClick={[Function]}
+                />
+              </div>,
+            ],
+            "display": "showPreviewer",
+            "id": "filePreviewer",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "4c04d4c3-88c3-470a-80e8-1ecdb1b6e6e3",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <object
+                    data={undefined}
+                    type={undefined}
+                  >
+                    Not Supported
+                  </object>,
+                  <span
+                    className="fa fa-trash"
+                    data-id={0}
+                    onClick={[Function]}
+                  />,
+                ],
+                "className": "fileThumbnails",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Not Supported",
+                    "data": undefined,
+                    "type": undefined,
+                  },
+                  "ref": null,
+                  "rendered": "Not Supported",
+                  "type": "object",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fa fa-trash",
+                    "data-id": 0,
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                Drag & Drop files
+              </span>,
+              <span
+                className="fa fa-camera"
+              />,
+              <span>
+                Or Click
+              </span>,
+            ],
+            "htmlFor": "file",
+            "id": "selectFileContainer",
+            "onDragEnter": [Function],
+            "onDragOver": [Function],
+            "onDrop": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Drag & Drop files",
+              },
+              "ref": null,
+              "rendered": "Drag & Drop files",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-camera",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Or Click",
+              },
+              "ref": null,
+              "rendered": "Or Click",
+              "type": "span",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "id": "file",
+            "multiple": true,
+            "name": "files",
+            "onChange": [Function],
+            "style": Object {
+              "display": "none",
+            },
+            "type": "file",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "main",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div>
+          <div
+            display="showPreviewer"
+            id="filePreviewer"
+          >
+            <div
+              className="fileThumbnails"
+            >
+              <object
+                data={undefined}
+                type={undefined}
+              >
+                Not Supported
+              </object>
+              <span
+                className="fa fa-trash"
+                data-id={0}
+                onClick={[Function]}
+              />
+            </div>
+          </div>
+          <label
+            htmlFor="file"
+            id="selectFileContainer"
+            onDragEnter={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+          >
+            <span>
+              Drag & Drop files
+            </span>
+            <span
+              className="fa fa-camera"
+            />
+            <span>
+              Or Click
+            </span>
+          </label>
+          <input
+            id="file"
+            multiple={true}
+            name="files"
+            onChange={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            type="file"
+          />
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              display="showPreviewer"
+              id="filePreviewer"
+            >
+              <div
+                className="fileThumbnails"
+              >
+                <object
+                  data={undefined}
+                  type={undefined}
+                >
+                  Not Supported
+                </object>
+                <span
+                  className="fa fa-trash"
+                  data-id={0}
+                  onClick={[Function]}
+                />
+              </div>
+            </div>,
+            <label
+              htmlFor="file"
+              id="selectFileContainer"
+              onDragEnter={[Function]}
+              onDragOver={[Function]}
+              onDrop={[Function]}
+            >
+              <span>
+                Drag & Drop files
+              </span>
+              <span
+                className="fa fa-camera"
+              />
+              <span>
+                Or Click
+              </span>
+            </label>,
+            <input
+              id="file"
+              multiple={true}
+              name="files"
+              onChange={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              type="file"
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="fileThumbnails"
+                >
+                  <object
+                    data={undefined}
+                    type={undefined}
+                  >
+                    Not Supported
+                  </object>
+                  <span
+                    className="fa fa-trash"
+                    data-id={0}
+                    onClick={[Function]}
+                  />
+                </div>,
+              ],
+              "display": "showPreviewer",
+              "id": "filePreviewer",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "4c04d4c3-88c3-470a-80e8-1ecdb1b6e6e3",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <object
+                      data={undefined}
+                      type={undefined}
+                    >
+                      Not Supported
+                    </object>,
+                    <span
+                      className="fa fa-trash"
+                      data-id={0}
+                      onClick={[Function]}
+                    />,
+                  ],
+                  "className": "fileThumbnails",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Not Supported",
+                      "data": undefined,
+                      "type": undefined,
+                    },
+                    "ref": null,
+                    "rendered": "Not Supported",
+                    "type": "object",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fa fa-trash",
+                      "data-id": 0,
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span>
+                  Drag & Drop files
+                </span>,
+                <span
+                  className="fa fa-camera"
+                />,
+                <span>
+                  Or Click
+                </span>,
+              ],
+              "htmlFor": "file",
+              "id": "selectFileContainer",
+              "onDragEnter": [Function],
+              "onDragOver": [Function],
+              "onDrop": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Drag & Drop files",
+                },
+                "ref": null,
+                "rendered": "Drag & Drop files",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-camera",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Or Click",
+                },
+                "ref": null,
+                "rendered": "Or Click",
+                "type": "span",
+              },
+            ],
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "file",
+              "multiple": true,
+              "name": "files",
+              "onChange": [Function],
+              "style": Object {
+                "display": "none",
+              },
+              "type": "file",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "main",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

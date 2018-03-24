@@ -9,7 +9,7 @@ const { cloudinaryUploadUrl, cloudinaryUploadPreset } = config;
  * @param {Object} files
  * @returns {Promise} Promise
  */
-const fileUploader = async (files) => {
+const uploadToCloudinary = async (files) => {
   const imageData = new FormData();
   var imageUrls = []
 
@@ -30,7 +30,6 @@ const fileUploader = async (files) => {
           return_delete_token: 1
         });
         imageUrls.push(imageUrl.data.secure_url);
-        console.log(files.length, imageUrls.length)
         if(files.length === imageUrls.length){
           return resolve(imageUrls);
         } 
@@ -42,4 +41,4 @@ const fileUploader = async (files) => {
   })
 };
 
-export default fileUploader;
+export default uploadToCloudinary;

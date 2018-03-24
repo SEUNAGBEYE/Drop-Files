@@ -7,15 +7,32 @@
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack",
+    "test": "jest -u ./__tests__/**/**/** && codecov",
     "dev-server": "webpack-dev-server"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/enzyme/"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>./__tests__/__mocks__/fileMock.js",
+      "\\.(s?css|less)$": "<rootDir>./__tests__/__mocks__/styleMock.js"
+    },
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage/",
+    "verbose": true,
+    "setupFiles": [
+      "<rootDir>./__tests__/config.js"
+    ]
   },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-cli": "6.24.1",
-    "babel-core": "6.25.0",
+    "babel-core": "^6.26.0",
     "babel-loader": "7.1.1",
     "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-polyfill": "^6.26.0", 
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "^0.28.11",
@@ -28,17 +45,25 @@
     "node-sass": "4.5.3",
     "nodemon": "^1.17.2",
     "normalize.css": "7.0.0",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "react-modal": "2.2.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
     "uuid": "^3.2.1",
     "validator": "8.0.0",
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
-    "prop-types": "^15.6.1"
+    "babel-jest": "^22.4.3",
+    "codecov": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "prop-types": "^15.6.1",
+    "regenerator-runtime": "^0.11.1",
+    "sinon": "^4.4.8"
   }
 }

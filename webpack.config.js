@@ -4,9 +4,9 @@ const Dotenv = require('dotenv-webpack');
  
 
 module.exports = {
-  entry: ['babel-polyfill', './src/app.js'],
+  entry: ['babel-polyfill', './example/app.js'],
   output: {
-    path: path.join(__dirname, 'src/public'),
+    path: path.join(__dirname, 'example/public'),
     filename: 'bundle.js',
   },
   module: {
@@ -22,6 +22,9 @@ module.exports = {
         'sass-loader'
       ]
     },
+    { test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/
+      , loader: 'url-loader'
+    },
     {
       test: /\.(png|jpg|gif|jpeg)$/,
       use: ['file-loader']
@@ -36,7 +39,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'src/public')
+    contentBase: path.join(__dirname, 'example/public')
   },
   node: {
     fs: "empty"
