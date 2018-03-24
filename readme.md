@@ -1,8 +1,12 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/f476de1c543cb436c232/maintainability)](https://codeclimate.com/github/SEUNAGBEYE/Drop-Files/maintainability)
+[![npm version](https://badge.fury.io/js/dropfiles.svg)](https://badge.fury.io/js/dropfiles)
+[![Maintainability](https://camo.githubusercontent.com/63b54fba450db73476937c812c998847ee48b9ab/68747470733a2f2f6170692e636f6465636c696d6174652e636f6d2f76312f6261646765732f66343736646531633534336362343336633233322f6d61696e7461696e6162696c697479)](https://codeclimate.com/github/SEUNAGBEYE/Drop-Files/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f476de1c543cb436c232/test_coverage)](https://codeclimate.com/github/SEUNAGBEYE/Drop-Files/test_coverage)
-[![Build Status](https://travis-ci.org/SEUNAGBEYE/Drop-Files.svg?branch=master)](https://travis-ci.org/SEUNAGBEYE/Drop-Files)
+[![Build Status](https://img.shields.io/travis/SEUNAGBEYE/Drop-Files.svg)](https://travis-ci.org/SEUNAGBEYE/Drop-Files)
 [![codecov](https://codecov.io/gh/SEUNAGBEYE/Drop-Files/branch/develop/graph/badge.svg)](https://codecov.io/gh/SEUNAGBEYE/Drop-Files)
+
 ## Drop Files
+
+### [Github](https://github.com/SEUNAGBEYE/Drop-Files)
 
 Drop File is a simple react component that allows you select files from your computer.
 
@@ -21,6 +25,7 @@ List of media files supported at the moment are :
 * pdf
 * mp3
 * mp4
+* media urls
 * audio/video
 
 
@@ -29,15 +34,31 @@ List of media files supported at the moment are :
 - npm i dropfiles
 
   create ```.env file```,  add your ```CLOUDINARY_UPLOAD_PRESET = your cloudinary preset``` and ```CLOUDINARY_UPLOAD_URL= your cloudinary upload url```.
+
+- webpack configuration
+```module: {
+    rules: [{
+      test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+      loader: 'url-loader'
+    }],
+    node: {
+      fs: "empty"
+    }
+  }
+ ```
  
 
- 
+ ## Uploading files to Cloudinary
+To upload your files to cloudinary all you have to do is import the ```uploadToCloudinary``` function and have a state name ```files``` which should be an array, and call the ```uploadToCloudinary``` function and pass in the ```files``` as an argument. The ```uploadToCloudinary``` function returns a promise, the  promise contains an array of urls for the files uploaded to cloudinary.
+
+## Note
+If you are attaching any token to your request in your application please make sure you clear them before calling the ```uploadToCloudinary``` function, else you get an error from ```Cloudinary```
 
 
 ## Usage
   ```
   import React, Component from 'react'
-  import DropFile, { uploadToCloudinary } from dropfiles
+  import DropFile, { uploadToCloudinary } from 'dropfiles'
 
   /**
  * @description Example Component
@@ -67,7 +88,8 @@ class Example extends Component{
     event.preventDefault()
     this.setState({ fileUploading: true })
     const { files } = this.state;
-    const uploadedFiles = await uploadToCloudinary(files);
+    Reflect.deleteProperty(axios.defaults.headers.common, 'x-access-token');
+    const uploadedFiles = await uploadToCloudinary(files); // contains the urls of the uploaded files
     this.setState({ fileUploading: false, files: [], uploadedFiles })
   }
 
@@ -141,8 +163,6 @@ export default Example;
 
 The ```Example Component is your own component```, all you need to do is instantiate the Drop File Component and pass in the props ```that``` which is the ```this``` of the your own component and you're good to go. i.e  ```<DropFile that={this} />```
 
-## Uploading files to Cloudinary
-To upload your files to cloudinary all you have to do is import the ```uploadToCloudinary``` function and have a state name ```files``` which should be an array, and call the ```uploadToCloudinary``` function and pass in the ```files``` as an argument. The ```uploadToCloudinary``` function returns a promise and the data from the promise contains an array called ```uploadedFiles``` which is an array of urls for the files uploaded to cloudinary.
 # FAQ
 
 * Who can contribute ?

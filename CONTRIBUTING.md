@@ -5,6 +5,9 @@ ____
 
 * Clone the repository 
 `git clone https://github.com/{your_username_goes_here}/dman.git`
+*   create ```.env file```,  add your ```CLOUDINARY_UPLOAD_PRESET = your cloudinary preset``` and ```CLOUDINARY_UPLOAD_URL= your cloudinary upload url```.
+* run ```yarn test to run the tests```
+* run ```yarn run dev-server``` to run it
 
 
 # Git Work Flow

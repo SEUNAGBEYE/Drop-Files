@@ -34,18 +34,20 @@ ShallowWrapper {
           id="filePreviewer"
         >
           <div
-            className="fileThumbnails"
+            className="file-thumbnails"
           >
             <object
+              className="object-types"
               data={undefined}
               type={undefined}
             >
               Not Supported
             </object>
-            <span
-              className="fa fa-trash"
+            <img
+              className="trash"
               data-id={0}
               onClick={[Function]}
+              src={Object {}}
             />
           </div>
         </div>
@@ -59,8 +61,9 @@ ShallowWrapper {
           <span>
             Drag & Drop files
           </span>
-          <span
-            className="fa fa-camera"
+          <img
+            className="camera"
+            src={Object {}}
           />
           <span>
             Or Click
@@ -92,18 +95,20 @@ ShallowWrapper {
             id="filePreviewer"
           >
             <div
-              className="fileThumbnails"
+              className="file-thumbnails"
             >
               <object
+                className="object-types"
                 data={undefined}
                 type={undefined}
               >
                 Not Supported
               </object>
-              <span
-                className="fa fa-trash"
+              <img
+                className="trash"
                 data-id={0}
                 onClick={[Function]}
+                src={Object {}}
               />
             </div>
           </div>,
@@ -117,8 +122,9 @@ ShallowWrapper {
             <span>
               Drag & Drop files
             </span>
-            <span
-              className="fa fa-camera"
+            <img
+              className="camera"
+              src={Object {}}
             />
             <span>
               Or Click
@@ -147,18 +153,20 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="fileThumbnails"
+                className="file-thumbnails"
               >
                 <object
+                  className="object-types"
                   data={undefined}
                   type={undefined}
                 >
                   Not Supported
                 </object>
-                <span
-                  className="fa fa-trash"
+                <img
+                  className="trash"
                   data-id={0}
                   onClick={[Function]}
+                  src={Object {}}
                 />
               </div>,
             ],
@@ -169,23 +177,25 @@ ShallowWrapper {
           "rendered": Array [
             Object {
               "instance": null,
-              "key": "eb9f217c-d992-4d58-b507-368d6d0ef4fc",
+              "key": "3abfdb0a-0b51-4d37-9f02-e8d57eabd580",
               "nodeType": "host",
               "props": Object {
                 "children": Array [
                   <object
+                    className="object-types"
                     data={undefined}
                     type={undefined}
                   >
                     Not Supported
                   </object>,
-                  <span
-                    className="fa fa-trash"
+                  <img
+                    className="trash"
                     data-id={0}
                     onClick={[Function]}
+                    src={Object {}}
                   />,
                 ],
-                "className": "fileThumbnails",
+                "className": "file-thumbnails",
               },
               "ref": null,
               "rendered": Array [
@@ -195,6 +205,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": "Not Supported",
+                    "className": "object-types",
                     "data": undefined,
                     "type": undefined,
                   },
@@ -207,13 +218,14 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "className": "fa fa-trash",
+                    "className": "trash",
                     "data-id": 0,
                     "onClick": [Function],
+                    "src": Object {},
                   },
                   "ref": null,
                   "rendered": null,
-                  "type": "span",
+                  "type": "img",
                 },
               ],
               "type": "div",
@@ -230,8 +242,9 @@ ShallowWrapper {
               <span>
                 Drag & Drop files
               </span>,
-              <span
-                className="fa fa-camera"
+              <img
+                className="camera"
+                src={Object {}}
               />,
               <span>
                 Or Click
@@ -261,11 +274,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "className": "fa fa-camera",
+                "className": "camera",
+                "src": Object {},
               },
               "ref": null,
               "rendered": null,
-              "type": "span",
+              "type": "img",
             },
             Object {
               "instance": null,
@@ -316,18 +330,20 @@ ShallowWrapper {
             id="filePreviewer"
           >
             <div
-              className="fileThumbnails"
+              className="file-thumbnails"
             >
               <object
+                className="object-types"
                 data={undefined}
                 type={undefined}
               >
                 Not Supported
               </object>
-              <span
-                className="fa fa-trash"
+              <img
+                className="trash"
                 data-id={0}
                 onClick={[Function]}
+                src={Object {}}
               />
             </div>
           </div>
@@ -341,8 +357,9 @@ ShallowWrapper {
             <span>
               Drag & Drop files
             </span>
-            <span
-              className="fa fa-camera"
+            <img
+              className="camera"
+              src={Object {}}
             />
             <span>
               Or Click
@@ -374,18 +391,20 @@ ShallowWrapper {
               id="filePreviewer"
             >
               <div
-                className="fileThumbnails"
+                className="file-thumbnails"
               >
                 <object
+                  className="object-types"
                   data={undefined}
                   type={undefined}
                 >
                   Not Supported
                 </object>
-                <span
-                  className="fa fa-trash"
+                <img
+                  className="trash"
                   data-id={0}
                   onClick={[Function]}
+                  src={Object {}}
                 />
               </div>
             </div>,
@@ -399,8 +418,9 @@ ShallowWrapper {
               <span>
                 Drag & Drop files
               </span>
-              <span
-                className="fa fa-camera"
+              <img
+                className="camera"
+                src={Object {}}
               />
               <span>
                 Or Click
@@ -429,18 +449,20 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <div
-                  className="fileThumbnails"
+                  className="file-thumbnails"
                 >
                   <object
+                    className="object-types"
                     data={undefined}
                     type={undefined}
                   >
                     Not Supported
                   </object>
-                  <span
-                    className="fa fa-trash"
+                  <img
+                    className="trash"
                     data-id={0}
                     onClick={[Function]}
+                    src={Object {}}
                   />
                 </div>,
               ],
@@ -451,23 +473,25 @@ ShallowWrapper {
             "rendered": Array [
               Object {
                 "instance": null,
-                "key": "eb9f217c-d992-4d58-b507-368d6d0ef4fc",
+                "key": "3abfdb0a-0b51-4d37-9f02-e8d57eabd580",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
                     <object
+                      className="object-types"
                       data={undefined}
                       type={undefined}
                     >
                       Not Supported
                     </object>,
-                    <span
-                      className="fa fa-trash"
+                    <img
+                      className="trash"
                       data-id={0}
                       onClick={[Function]}
+                      src={Object {}}
                     />,
                   ],
-                  "className": "fileThumbnails",
+                  "className": "file-thumbnails",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -477,6 +501,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": "Not Supported",
+                      "className": "object-types",
                       "data": undefined,
                       "type": undefined,
                     },
@@ -489,13 +514,14 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "className": "fa fa-trash",
+                      "className": "trash",
                       "data-id": 0,
                       "onClick": [Function],
+                      "src": Object {},
                     },
                     "ref": null,
                     "rendered": null,
-                    "type": "span",
+                    "type": "img",
                   },
                 ],
                 "type": "div",
@@ -512,8 +538,9 @@ ShallowWrapper {
                 <span>
                   Drag & Drop files
                 </span>,
-                <span
-                  className="fa fa-camera"
+                <img
+                  className="camera"
+                  src={Object {}}
                 />,
                 <span>
                   Or Click
@@ -543,11 +570,12 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "className": "fa fa-camera",
+                  "className": "camera",
+                  "src": Object {},
                 },
                 "ref": null,
                 "rendered": null,
-                "type": "span",
+                "type": "img",
               },
               Object {
                 "instance": null,

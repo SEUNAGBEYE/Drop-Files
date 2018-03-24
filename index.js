@@ -1,5 +1,5 @@
-import DropFile from './src/components/DropFile';
-import uploadToCloudinary from './src/helpers/uploadToCloudinary';
+import DropFile from './dist/components/DropFile';
+import uploadToCloudinary from './dist/helpers/uploadToCloudinary';
 
 export { uploadToCloudinary };
 export default DropFile;

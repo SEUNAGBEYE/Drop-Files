@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
-import './styles/styles.scss';
-import './font-awesome-4.7.0/scss/font-awesome.scss';
+import camera from '../../public/images/camera.png'
+import trash from '../../public/images/trash.jpeg'
+import '../../public/styles/styles.scss';
 
 /**
  * @description Drop File Component
@@ -18,7 +19,8 @@ class DropFile extends Component{
       supportedFormats: {
         video: /video/,
         image: /image/,
-        audio: /audio/
+        audio: /audio/,
+        urls: /https?/
       }
     }
     this.onChange = this.onChange.bind(this);
@@ -99,7 +101,7 @@ class DropFile extends Component{
     const { that } = this.props;
     const { 
       fileExtensionsRegex,
-      supportedFormats: { image, video, audio }
+      supportedFormats: { image, video, audio, urls }
     } = this.state
     window.URL = window.URL || window.webkitURL;
       return (
@@ -113,40 +115,71 @@ class DropFile extends Component{
             if(image.test(file.type)){
               return (
                 <a href={window.URL.createObjectURL(file)}
-                className="imageThumbnails"
+                className="image-thumbnails"
                 key={uuid()}
                 >
-                <img src={window.URL.createObjectURL(file)} data-id={index}
+                <img src={window.URL.createObjectURL(file)} 
+                className="image-types" data-id={index}
                 />
-                <span className="fa fa-trash" data-id={index}
+                <img className="trash" data-id={index}
                 onClick={this.removeFile}
+                src={trash}
                 />
                 </a>
               )
             } else if(audio.test(file.type)){
               return (
-                <audio controls key={uuid()}>
+                <div className="audio-lists">
+                <audio controls key={uuid()} className="audio-types">
                   <source src={window.URL.createObjectURL(file)}/>
                 </audio>
+                <img className="trash" data-id={index} 
+                  onClick={this.removeFile}
+                  src={trash}
+                />
+                </div>
               )
             } else if(video.test(file.type)){
               return (
-                <video className="imageThumbnails" key={uuid()}
+                <div className="file-thumbnails">
+                <video key={uuid()}
+                  className="video-types"
                   preload controls
                 >
                   <source src={window.URL.createObjectURL(file)} />
                 </video>
+                <img className="trash" data-id={index} 
+                  onClick={this.removeFile}
+                  src={trash}
+                />
+                </div>
+              )
+            } else if(urls.test(file)){
+              return (
+                <div className="file-thumbnails"
+                key={uuid()}
+              >
+                <object data={file}
+                className="object-types"
+                >Not Supported</object>
+                <img className="trash" data-id={index} 
+                  onClick={this.removeFile}
+                  src={trash}
+                />
+              </div>
               )
             }
               return(
-                <div className="fileThumbnails"
+                <div className="file-thumbnails"
                   key={uuid()}
                 >
                   <object data={window.URL.createObjectURL(file)}
                   type={file.type}
+                  className="object-types"
                   >Not Supported</object>
-                  <span className="fa fa-trash" data-id={index} 
+                  <img className="trash" data-id={index} 
                     onClick={this.removeFile}
+                    src={trash}
                   />
                 </div>
               )
@@ -174,7 +207,7 @@ class DropFile extends Component{
               onDrop={this.dragAndDropFile}
             >
                 <span>Drag & Drop files</span>
-                <span className="fa fa-camera"></span>
+                <img className="camera" src={camera}/>
                 <span>Or Click</span>
             </label>
             <input type="file" style={{display:"none"}} name='files'
