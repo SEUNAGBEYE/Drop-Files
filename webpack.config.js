@@ -6,7 +6,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = {
   entry: ['babel-polyfill', './example/app.js'],
   output: {
-    path: path.join(__dirname, 'example/public'),
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
   },
   module: {
@@ -39,7 +39,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'example/public')
+    contentBase: path.join(__dirname, 'public')
   },
   node: {
     fs: "empty"

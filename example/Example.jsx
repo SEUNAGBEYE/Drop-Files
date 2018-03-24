@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import DropFile, { uploadToCloudinary } from '../index';
-import '../src/components/styles/styles.scss';
+import '../public/styles/styles.scss';
+import '../public/font-awesome-4.7.0/scss/font-awesome.scss'
 
 
 /**

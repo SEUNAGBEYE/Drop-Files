@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
-import './styles/styles.scss';
-import './font-awesome-4.7.0/scss/font-awesome.scss';
+import '../../public/styles/styles.scss';
+import '../../public/font-awesome-4.7.0/scss/font-awesome.scss'
 
 /**
  * @description Drop File Component

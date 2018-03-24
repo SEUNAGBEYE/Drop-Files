@@ -7,7 +7,8 @@
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "jest -u ./__tests__/**/**/** && codecov",
-    "dev-server": "webpack-dev-server"
+    "build": "babel src -d dist && webpack -p --config ./webpack.config.js",
+    "dev-server": "yarn run build && webpack-dev-server"
   },
   "jest": {
     "unmockedModulePathPatterns": [
@@ -40,11 +41,9 @@
     "file-loader": "^1.1.11",
     "fs": "^0.0.1-security",
     "node-sass": "4.5.3",
-    "nodemon": "^1.17.2",
     "normalize.css": "7.0.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-modal": "2.2.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
@@ -53,6 +52,7 @@
     "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
+    "nodemon": "^1.17.2",
     "babel-jest": "^22.4.3",
     "codecov": "^3.0.0",
     "enzyme": "^3.3.0",
