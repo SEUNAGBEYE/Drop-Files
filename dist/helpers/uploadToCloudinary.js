@@ -28,23 +28,23 @@ var cloudinaryUploadUrl = _config2.default.cloudinaryUploadUrl,
 
 var uploadToCloudinary = function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(files) {
-    var imageData, imageUrls;
+    var formData, fileUrls;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            imageData = new FormData();
-            imageUrls = [];
+            formData = new FormData();
+            fileUrls = [];
             return _context2.abrupt('return', new Promise(function (resolve, reject) {
               files.map(function () {
                 var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(file) {
-                  var imageUrl;
+                  var uploadedFile;
                   return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                       switch (_context.prev = _context.next) {
                         case 0:
-                          imageData.append('file', file);
-                          imageData.append('upload_preset', cloudinaryUploadPreset);
+                          formData.append('file', file);
+                          formData.append('upload_preset', cloudinaryUploadPreset);
 
                           _context.prev = 2;
                           _context.next = 5;
@@ -55,21 +55,21 @@ var uploadToCloudinary = function () {
                               'Content-Type': 'application/x-www-form.urlencoded',
                               'X-Requested-With': 'XMLHttpRequest'
                             },
-                            data: imageData,
+                            data: formData,
                             return_delete_token: 1
                           });
 
                         case 5:
-                          imageUrl = _context.sent;
+                          uploadedFile = _context.sent;
 
-                          imageUrls.push(imageUrl.data.secure_url);
+                          fileUrls.push(uploadedFile.data.secure_url);
 
-                          if (!(files.length === imageUrls.length)) {
+                          if (!(files.length === fileUrls.length)) {
                             _context.next = 9;
                             break;
                           }
 
-                          return _context.abrupt('return', resolve(imageUrls));
+                          return _context.abrupt('return', resolve(fileUrls));
 
                         case 9:
                           _context.next = 14;

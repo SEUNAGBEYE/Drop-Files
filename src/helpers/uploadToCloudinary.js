@@ -10,27 +10,27 @@ const { cloudinaryUploadUrl, cloudinaryUploadPreset } = config;
  * @returns {Promise} Promise
  */
 const uploadToCloudinary = async (files) => {
-  const imageData = new FormData();
-  var imageUrls = []
+  const formData = new FormData();
+  var fileUrls = []
   return new Promise((resolve, reject) => {
     files.map(async (file) => {
-      imageData.append('file', file);
-      imageData.append('upload_preset', cloudinaryUploadPreset);
+      formData.append('file', file);
+      formData.append('upload_preset', cloudinaryUploadPreset);
       
       try{
-        var imageUrl = await axios({
+        let uploadedFile = await axios({
           url: cloudinaryUploadUrl,
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form.urlencoded',
             'X-Requested-With': 'XMLHttpRequest'
           },
-          data: imageData,
+          data: formData,
           return_delete_token: 1
         });
-        imageUrls.push(imageUrl.data.secure_url);
-        if(files.length === imageUrls.length){
-          return resolve(imageUrls);
+        fileUrls.push(uploadedFile.data.secure_url);
+        if(files.length === fileUrls.length){
+          return resolve(fileUrls);
         } 
       } catch (error) {
         return reject(error)

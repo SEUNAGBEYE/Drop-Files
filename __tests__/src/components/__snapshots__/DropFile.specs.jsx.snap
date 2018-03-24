@@ -169,7 +169,7 @@ ShallowWrapper {
           "rendered": Array [
             Object {
               "instance": null,
-              "key": "4761913c-9801-4aef-afe8-b0ff54e7e372",
+              "key": "5144db63-294a-4f92-870c-2f0100d0077e",
               "nodeType": "host",
               "props": Object {
                 "children": Array [
@@ -451,7 +451,7 @@ ShallowWrapper {
             "rendered": Array [
               Object {
                 "instance": null,
-                "key": "4761913c-9801-4aef-afe8-b0ff54e7e372",
+                "key": "5144db63-294a-4f92-870c-2f0100d0077e",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
