@@ -53,7 +53,8 @@ var DropFile = function (_Component) {
       supportedFormats: {
         video: /video/,
         image: /image/,
-        audio: /audio/
+        audio: /audio/,
+        urls: /https?/
       }
     };
     _this.onChange = _this.onChange.bind(_this);
@@ -153,7 +154,8 @@ var DropFile = function (_Component) {
           _state$supportedForma = _state.supportedFormats,
           image = _state$supportedForma.image,
           video = _state$supportedForma.video,
-          audio = _state$supportedForma.audio;
+          audio = _state$supportedForma.audio,
+          urls = _state$supportedForma.urls;
 
       window.URL = window.URL || window.webkitURL;
       return that.state.files.length > 0 ? _react2.default.createElement(
@@ -188,6 +190,22 @@ var DropFile = function (_Component) {
                 preload: true, controls: true
               },
               _react2.default.createElement('source', { src: window.URL.createObjectURL(file) })
+            );
+          } else if (urls.test(file)) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'fileThumbnails',
+                key: (0, _uuid2.default)()
+              },
+              _react2.default.createElement(
+                'object',
+                { data: file
+                },
+                'Not Supported'
+              ),
+              _react2.default.createElement('span', { className: 'fa fa-trash', 'data-id': index,
+                onClick: _this2.removeFile
+              })
             );
           }
           return _react2.default.createElement(

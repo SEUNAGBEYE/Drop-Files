@@ -12,7 +12,6 @@ const { cloudinaryUploadUrl, cloudinaryUploadPreset } = config;
 const uploadToCloudinary = async (files) => {
   const imageData = new FormData();
   var imageUrls = []
-
   return new Promise((resolve, reject) => {
     files.map(async (file) => {
       imageData.append('file', file);

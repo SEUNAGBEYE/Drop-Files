@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import DropFile, { uploadToCloudinary } from '../index';
-import '../public/styles/styles.scss';
+import '../public/styles/example.scss';
 import '../public/font-awesome-4.7.0/scss/font-awesome.scss'
 
 
@@ -88,6 +88,7 @@ class Example extends Component{
                   Close
                 </button>
                 <button type="button" className="btn btn-primary"
+                id="uploadButton"
                 >
                   Save changes
                 </button>

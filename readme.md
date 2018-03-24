@@ -21,6 +21,7 @@ List of media files supported at the moment are :
 * pdf
 * mp3
 * mp4
+* media urls
 * audio/video
 
 
@@ -29,15 +30,33 @@ List of media files supported at the moment are :
 - npm i dropfiles
 
   create ```.env file```,  add your ```CLOUDINARY_UPLOAD_PRESET = your cloudinary preset``` and ```CLOUDINARY_UPLOAD_URL= your cloudinary upload url```.
+
+- webpack configuration
+  ```
+  module: {
+    rules: [{
+      test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+      loader: 'url-loader'
+    }],
+    node: {
+      fs: "empty"
+    }
+  }
+
+ ```
  
 
- 
+ ## Uploading files to Cloudinary
+To upload your files to cloudinary all you have to do is import the ```uploadToCloudinary``` function and have a state name ```files``` which should be an array, and call the ```uploadToCloudinary``` function and pass in the ```files``` as an argument. The ```uploadToCloudinary``` function returns a promise, the  promise contains an array of urls for the files uploaded to cloudinary.
+
+## Note
+If you are attaching any token to your request in your application please make sure you clear them before calling the ```uploadToCloudinary``` function, else you get an error from ```Cloudinary```
 
 
 ## Usage
   ```
   import React, Component from 'react'
-  import DropFile, { uploadToCloudinary } from dropfiles
+  import DropFile, { uploadToCloudinary } from 'dropfiles'
 
   /**
  * @description Example Component
@@ -67,7 +86,8 @@ class Example extends Component{
     event.preventDefault()
     this.setState({ fileUploading: true })
     const { files } = this.state;
-    const uploadedFiles = await uploadToCloudinary(files);
+    Reflect.deleteProperty(axios.defaults.headers.common, 'x-access-token');
+    const uploadedFiles = await uploadToCloudinary(files); // contains the urls of the uploaded files
     this.setState({ fileUploading: false, files: [], uploadedFiles })
   }
 
@@ -141,8 +161,6 @@ export default Example;
 
 The ```Example Component is your own component```, all you need to do is instantiate the Drop File Component and pass in the props ```that``` which is the ```this``` of the your own component and you're good to go. i.e  ```<DropFile that={this} />```
 
-## Uploading files to Cloudinary
-To upload your files to cloudinary all you have to do is import the ```uploadToCloudinary``` function and have a state name ```files``` which should be an array, and call the ```uploadToCloudinary``` function and pass in the ```files``` as an argument. The ```uploadToCloudinary``` function returns a promise and the data from the promise contains an array called ```uploadedFiles``` which is an array of urls for the files uploaded to cloudinary.
 # FAQ
 
 * Who can contribute ?

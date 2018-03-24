@@ -18,7 +18,8 @@ class DropFile extends Component{
       supportedFormats: {
         video: /video/,
         image: /image/,
-        audio: /audio/
+        audio: /audio/,
+        urls: /https?/
       }
     }
     this.onChange = this.onChange.bind(this);
@@ -99,7 +100,7 @@ class DropFile extends Component{
     const { that } = this.props;
     const { 
       fileExtensionsRegex,
-      supportedFormats: { image, video, audio }
+      supportedFormats: { image, video, audio, urls }
     } = this.state
     window.URL = window.URL || window.webkitURL;
       return (
@@ -136,6 +137,18 @@ class DropFile extends Component{
                 >
                   <source src={window.URL.createObjectURL(file)} />
                 </video>
+              )
+            } else if(urls.test(file)){
+              return (
+                <div className="fileThumbnails"
+                key={uuid()}
+              >
+                <object data={file}
+                >Not Supported</object>
+                <span className="fa fa-trash" data-id={index} 
+                  onClick={this.removeFile}
+                />
+              </div>
               )
             }
               return(
