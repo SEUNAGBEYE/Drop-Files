@@ -15,3 +15,5 @@ exclude_patterns:
   - "src/components/font-awesome-4.7.0"
   - "example/public"
   - "__tests__"
+  - "dist"
+  - "public"

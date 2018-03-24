@@ -18,7 +18,7 @@ const uploadToCloudinary = async (files) => {
       formData.append('upload_preset', cloudinaryUploadPreset);
       
       try{
-        let uploadedFile = await axios({
+        const uploadedFile = await axios({
           url: cloudinaryUploadUrl,
           method: 'POST',
           headers: {
