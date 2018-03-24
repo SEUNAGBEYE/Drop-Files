@@ -11,7 +11,7 @@ services:
 env:
   global:
     - NODE_ENV=test
-    - CC_TEST_REPORTER_ID=a2940e57e00f54e47670e155bec059300094f33861f43f3ea5458d385458e76f
+    - CC_TEST_REPORTER_ID=c9d52ceca858b7b11e56c67dc50e2d6c069a4be7e0c40ca6aceee8d674b65fd7
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -19,4 +19,5 @@ before_script:
 script: yarn test
 
 after_success:
+  - yarn run coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
