@@ -3,7 +3,6 @@ import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import DropFile, { uploadToCloudinary } from '../index';
 import '../public/styles/example.scss';
-import '../public/font-awesome-4.7.0/scss/font-awesome.scss'
 
 
 /**

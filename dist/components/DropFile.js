@@ -18,9 +18,15 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-require('../../public/styles/styles.scss');
+var _camera = require('../../public/images/camera.png');
 
-require('../../public/font-awesome-4.7.0/scss/font-awesome.scss');
+var _camera2 = _interopRequireDefault(_camera);
+
+var _trash = require('../../public/images/trash.jpeg');
+
+var _trash2 = _interopRequireDefault(_trash);
+
+require('../../public/styles/styles.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,12 +40,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+console.log('+++++++', _trash2.default);
+
 /**
  * @description Drop File Component
  * 
  * @class DropFile
  * @extends {Component}
  */
+
 var DropFile = function (_Component) {
   _inherits(DropFile, _Component);
 
@@ -168,33 +177,52 @@ var DropFile = function (_Component) {
             return _react2.default.createElement(
               'a',
               { href: window.URL.createObjectURL(file),
-                className: 'imageThumbnails',
+                className: 'image-thumbnails',
                 key: (0, _uuid2.default)()
               },
-              _react2.default.createElement('img', { src: window.URL.createObjectURL(file), className: 'image-types', 'data-id': index
+              _react2.default.createElement('img', { src: window.URL.createObjectURL(file),
+                className: 'image-types', 'data-id': index
               }),
-              _react2.default.createElement('span', { className: 'fa fa-trash', 'data-id': index,
-                onClick: _this2.removeFile
+              _react2.default.createElement('img', { className: 'trash', 'data-id': index,
+                onClick: _this2.removeFile,
+                src: _trash2.default
               })
             );
           } else if (audio.test(file.type)) {
             return _react2.default.createElement(
-              'audio',
-              { controls: true, key: (0, _uuid2.default)() },
-              _react2.default.createElement('source', { src: window.URL.createObjectURL(file) })
+              'div',
+              { className: 'audio-lists' },
+              _react2.default.createElement(
+                'audio',
+                { controls: true, key: (0, _uuid2.default)(), className: 'audio-types' },
+                _react2.default.createElement('source', { src: window.URL.createObjectURL(file) })
+              ),
+              _react2.default.createElement('img', { className: 'trash', 'data-id': index,
+                onClick: _this2.removeFile,
+                src: _trash2.default
+              })
             );
           } else if (video.test(file.type)) {
             return _react2.default.createElement(
-              'video',
-              { className: 'imageThumbnails', key: (0, _uuid2.default)(),
-                preload: true, controls: true
-              },
-              _react2.default.createElement('source', { src: window.URL.createObjectURL(file) })
+              'div',
+              { className: 'file-thumbnails' },
+              _react2.default.createElement(
+                'video',
+                { key: (0, _uuid2.default)(),
+                  className: 'video-types',
+                  preload: true, controls: true
+                },
+                _react2.default.createElement('source', { src: window.URL.createObjectURL(file) })
+              ),
+              _react2.default.createElement('img', { className: 'trash', 'data-id': index,
+                onClick: _this2.removeFile,
+                src: _trash2.default
+              })
             );
           } else if (urls.test(file)) {
             return _react2.default.createElement(
               'div',
-              { className: 'fileThumbnails',
+              { className: 'file-thumbnails',
                 key: (0, _uuid2.default)()
               },
               _react2.default.createElement(
@@ -204,14 +232,15 @@ var DropFile = function (_Component) {
                 },
                 'Not Supported'
               ),
-              _react2.default.createElement('span', { className: 'fa fa-trash', 'data-id': index,
-                onClick: _this2.removeFile
+              _react2.default.createElement('img', { className: 'trash', 'data-id': index,
+                onClick: _this2.removeFile,
+                src: _trash2.default
               })
             );
           }
           return _react2.default.createElement(
             'div',
-            { className: 'fileThumbnails',
+            { className: 'file-thumbnails',
               key: (0, _uuid2.default)()
             },
             _react2.default.createElement(
@@ -222,8 +251,9 @@ var DropFile = function (_Component) {
               },
               'Not Supported'
             ),
-            _react2.default.createElement('span', { className: 'fa fa-trash', 'data-id': index,
-              onClick: _this2.removeFile
+            _react2.default.createElement('img', { className: 'trash', 'data-id': index,
+              onClick: _this2.removeFile,
+              src: _trash2.default
             })
           );
         })
@@ -259,7 +289,7 @@ var DropFile = function (_Component) {
               null,
               'Drag & Drop files'
             ),
-            _react2.default.createElement('span', { className: 'fa fa-camera' }),
+            _react2.default.createElement('img', { className: 'camera', src: _camera2.default }),
             _react2.default.createElement(
               'span',
               null,

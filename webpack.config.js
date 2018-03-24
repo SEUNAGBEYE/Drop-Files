@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
+const uglifyJs = require('uglifyjs-webpack-plugin');
  
 
 module.exports = {
@@ -25,14 +26,17 @@ module.exports = {
     { test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/
       , loader: 'url-loader'
     },
-    {
-      test: /\.(png|jpg|gif|jpeg)$/,
-      use: ['file-loader']
-    }
   ]
   },
   plugins: [
-    new Dotenv()
+    new Dotenv(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
+    new uglifyJs({
+      sourceMap: true
+    })
   ],
   resolve: {
     extensions: ['.jsx', '.js']
