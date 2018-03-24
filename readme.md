@@ -1,6 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/f476de1c543cb436c232/maintainability)](https://codeclimate.com/github/SEUNAGBEYE/Drop-Files/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f476de1c543cb436c232/test_coverage)](https://codeclimate.com/github/SEUNAGBEYE/Drop-Files/test_coverage)
 [![Build Status](https://travis-ci.org/SEUNAGBEYE/Drop-Files.svg?branch=master)](https://travis-ci.org/SEUNAGBEYE/Drop-Files)
+[![codecov](https://codecov.io/gh/SEUNAGBEYE/Drop-Files/branch/develop/graph/badge.svg)](https://codecov.io/gh/SEUNAGBEYE/Drop-Files)
 ## Drop Files
 
 Drop File is a simple react component that allows you select files from your computer.
