@@ -171,7 +171,7 @@ var DropFile = function (_Component) {
                 className: 'imageThumbnails',
                 key: (0, _uuid2.default)()
               },
-              _react2.default.createElement('img', { src: window.URL.createObjectURL(file), 'data-id': index
+              _react2.default.createElement('img', { src: window.URL.createObjectURL(file), className: 'image-types', 'data-id': index
               }),
               _react2.default.createElement('span', { className: 'fa fa-trash', 'data-id': index,
                 onClick: _this2.removeFile
@@ -199,7 +199,8 @@ var DropFile = function (_Component) {
               },
               _react2.default.createElement(
                 'object',
-                { data: file
+                { data: file,
+                  className: 'object-types'
                 },
                 'Not Supported'
               ),
@@ -216,7 +217,8 @@ var DropFile = function (_Component) {
             _react2.default.createElement(
               'object',
               { data: window.URL.createObjectURL(file),
-                type: file.type
+                type: file.type,
+                className: 'object-types'
               },
               'Not Supported'
             ),

@@ -23,20 +23,17 @@
   margin: 0 auto;
 }
 
-a {
-  color: black;
-}
-
 .imageThumbnails {
   flex-grow: 1;
-  height: 150px;
-  width: 100px;
+  color: black;
+  height: 40vh;
+  width: 30vw;
   margin: 1rem;
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
 }
 
-img, object {
+.image-types, .object-types {
   width: 100%;
   height: 100%;
 }

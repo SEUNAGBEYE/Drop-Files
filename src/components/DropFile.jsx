@@ -117,7 +117,7 @@ class DropFile extends Component{
                 className="imageThumbnails"
                 key={uuid()}
                 >
-                <img src={window.URL.createObjectURL(file)} data-id={index}
+                <img src={window.URL.createObjectURL(file)} className="image-types" data-id={index}
                 />
                 <span className="fa fa-trash" data-id={index}
                 onClick={this.removeFile}
@@ -144,6 +144,7 @@ class DropFile extends Component{
                 key={uuid()}
               >
                 <object data={file}
+                className="object-types"
                 >Not Supported</object>
                 <span className="fa fa-trash" data-id={index} 
                   onClick={this.removeFile}
@@ -157,6 +158,7 @@ class DropFile extends Component{
                 >
                   <object data={window.URL.createObjectURL(file)}
                   type={file.type}
+                  className="object-types"
                   >Not Supported</object>
                   <span className="fa fa-trash" data-id={index} 
                     onClick={this.removeFile}
