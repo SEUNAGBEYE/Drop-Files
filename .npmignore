@@ -1,5 +1,7 @@
 node_modules
 .env
+.env.sample
 coverage
 example
 __tests__
+.DS_Store

@@ -12,6 +12,9 @@ Drop File is a simple react component that allows you select files from your com
 
 With Drop File you can select multiple files from your computer or simply drag and drop them, and you also get an instant preview of the files selected from your computer.
 
+## Installation
+run ```npm i dropfiles ```
+
 ## Cloudinary Support
 
 The awesome thing about this library is that developers who uses cloudinary for files upload can also upload their files to cloudinary stress-free. 
